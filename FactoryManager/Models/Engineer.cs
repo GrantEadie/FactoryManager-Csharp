@@ -13,7 +13,7 @@ namespace FactoryManager.Models
     public string EngineerName { get; set; }
     public string EngineerSpecialty { get; set; }
     public string EngineerExperience { get; set; }
-    public virtual ICollection<EngineerMachine> Engineers { get; set; }
-    public virtual ICollection<EngineerIncident> Machines { get; set; }
+    public virtual ICollection<EngineerIncident> Engineers { get; set; }
+    public virtual ICollection<EngineerMachine> Machines { get; set; }
   }
 }
