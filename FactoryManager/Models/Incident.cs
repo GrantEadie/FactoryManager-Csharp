@@ -2,17 +2,19 @@ using System.Collections.Generic;
 
 namespace FactoryManager.Models
 {
-  public class Mission
+  public class Incident
   {
-    public Mission()
+    public Incident()
     {
-      this.Engineers = new HashSet<EngineerMission>();
-      this.Manifests = new HashSet<MissionManifest>();
-    } 
-    public int MissionId { get; set; }
-    public string MissionName { get; set; }
-    public string MissionDescription { get; set; }
-    public virtual ICollection<EngineerMission> Engineers { get; set; }
-    public virtual ICollection<MissionManifest> Manifests { get; set; }
+      this.Machines = new HashSet<MachineIncident>() ;
+      this.Engineers = new HashSet<EngineerIncident>();
+    }
+    public int IncidentId { get; set; }
+    public string IncidentTitle { get; set; }
+    public string IncidentDamage { get; set; }
+    public int LocationId { get; set; }
+    public virtual Location Location { get; set; }
+    public virtual ICollection<EngineerIncident> Engineers { get; set; }
+    public virtual ICollection<MachineIncident> Machines { get; set; }
   }
 }

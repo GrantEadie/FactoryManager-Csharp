@@ -2,19 +2,18 @@ using System.Collections.Generic;
 
 namespace FactoryManager.Models
 {
-  public class Manifest
+  public class Engineer
   {
-    public Manifest()
+    public Engineer()
     {
-      this.Missions = new HashSet<MissionManifest>() ;
-      this.Engineers = new HashSet<EngineerManifest>();
+      this.Machines = new HashSet<EngineerMachine>() ;
+      this.Engineers = new HashSet<EngineerIncident>();
     }
-    public int ManifestId { get; set; }
-    public string ManifestTitle { get; set; }
-    public string ManifestLifeSupportSupply { get; set; }
-    public string ManifestEngineerCargo { get; set; }
-    public string ManifestWeapon { get; set; }
-    public virtual ICollection<EngineerManifest> Engineers { get; set; }
-    public virtual ICollection<MissionManifest> Missions { get; set; }
+    public int EngineerId { get; set; }
+    public string EngineerName { get; set; }
+    public string EngineerSpecialty { get; set; }
+    public string EngineerExperience { get; set; }
+    public virtual ICollection<EngineerMachine> Engineers { get; set; }
+    public virtual ICollection<EngineerIncident> Machines { get; set; }
   }
 }
