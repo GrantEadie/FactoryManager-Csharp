@@ -7,13 +7,13 @@ namespace FactoryManager.Models
     public Engineer()
     {
       this.Machines = new HashSet<EngineerMachine>() ;
-      this.Engineers = new HashSet<EngineerIncident>();
+      this.Incidents = new HashSet<EngineerIncident>();
     }
     public int EngineerId { get; set; }
     public string EngineerName { get; set; }
     public string EngineerSpecialty { get; set; }
     public string EngineerExperience { get; set; }
-    public virtual ICollection<EngineerIncident> Engineers { get; set; }
+    public virtual ICollection<EngineerIncident> Incidents { get; set; }
     public virtual ICollection<EngineerMachine> Machines { get; set; }
   }
 }
