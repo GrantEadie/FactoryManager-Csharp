@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+@model FactoryManager.Models.Engineer
+
+<h2>Edit</h2><hr>
+  <div class="row">
+    <div class="col-sm">
+      <h4>@Html.DisplayFor(model => model.EngineerName)</h4><hr>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  <p>Name: </p>
+  @Html.TextBoxFor(model => model.EngineerName,null, new {@required="required", @style="width:100%"})
+  <br><br>
+  @Html.Label("Focus/Specialty")
+  <br>
+  @Html.TextBoxFor(model => model.EngineerSpecialty, new {@required="required", @style="width:100%"})
+  <br><br>
+  @Html.Label("Experience")
+  <br>
+  @Html.TextBoxFor(model => model.EngineerExperience, new {@required="required", @style="width:100%"})<br><br>
+
+  <input type="submit" value="Save" class="btn btn-outline-dark btn-block btn-sm" />
+}
+<br>
+<p>@Html.ActionLink("Cancel", "Details", null, new {id = Model.EngineerId}, new {@class="btn btn-outline-warning btn-block btn-sm"})</p>
+    </div>
+    <div class="col-sm">
+
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>

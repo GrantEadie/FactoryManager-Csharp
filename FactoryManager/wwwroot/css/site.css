@@ -6,3 +6,25 @@
   margin-left:10px !important;
   margin-right:10px !important;
 }
+
+li {
+  list-style-type: none;
+}
+
+.jumbotron {
+  background:transparent !important
+}
+
+.full-width {
+  width:100%;
+}
+
+.list-detail {
+  color:black;
+  font-size:25px;
+}
+
+a:hover {
+  color:red;
+  text-decoration:none;
+}
