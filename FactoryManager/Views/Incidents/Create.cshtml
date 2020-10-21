@@ -1,0 +1,35 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FactoryManager.Models.Incident;
+<br><br>
+<h4>add a new incident</h4><hr> 
+<div class="row">
+  <div class="col-sm">
+
+    @using (Html.BeginForm())
+    {
+        @Html.Label("Name")
+        <br>
+        @Html.TextBoxFor(model => model.IncidentTitle, new {@required="required", @style="width:100%"})
+        <br><br>
+        @Html.Label("Focus/Specialty")
+        <br>
+        @Html.TextBoxFor(model => model.IncidentDamage, new {@required="required", @style="width:100%"})
+        <br><br>
+        @Html.Label("Experience")
+        <br>
+        @Html.TextBoxFor(model => model.Location, new {@required="required", @style="width:100%"})
+        <br><br><br>
+        <input type="submit" value="Add New Incident" class="btn btn-outline-dark btn-block btn-sm" />
+    }
+    <br>
+    <p>@Html.ActionLink("Cancel", "Index", null, null, new {@class="btn btn-outline-warning btn-block btn-sm"})</p>
+  </div>
+  <div class="col-sm">
+
+    </div>
+    <div class="col-sm">
+    </div>
+</div>

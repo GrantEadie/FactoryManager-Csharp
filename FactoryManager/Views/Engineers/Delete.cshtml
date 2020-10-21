@@ -7,7 +7,9 @@
 <div class="row">
   <div class="col-sm">
 
-      <h3>@Html.DisplayFor(model => model.EngineerName)</h3>
+      <h3>@Html.DisplayFor(model => model.EngineerName)</h3><br>
+      <p>@Html.DisplayFor(model=> model.EngineerSpecialty)</p>
+      <p>@Html.DisplayFor(model=> model.EngineerExperience)</p>
       @using (Html.BeginForm())
       {
         <br>
