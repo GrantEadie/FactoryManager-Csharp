@@ -31,11 +31,11 @@ namespace FactoryManager.Controllers
     [HttpPost]
     public ActionResult Create(Machine machine, int LocationId)
     {
+      _db.Machines.Add(machine);
       if (LocationId != 0)
       {
         _db.MachineLocation.Add(new MachineLocation() { LocationId = LocationId, MachineId = machine.MachineId});
       }
-      _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }  
