@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FactoryManager.Models.Machine;
+<br><br>
+<h4>add a new machine</h4><hr> 
+<div class="row">
+  <div class="col-sm">
+
+    @using (Html.BeginForm())
+    {
+        @Html.Label("Name")
+        <br>
+        @Html.TextBoxFor(model => model.MachineName, new {@required="required", @style="width:100%"})
+        <br><br>
+        @Html.Label("Brand")
+        <br>
+        @Html.TextBoxFor(model => model.MachineBrand, new {@required="required", @style="width:100%"})
+        <br><br>
+        @Html.Label("Purpose")
+        <br>
+        @Html.TextBoxFor(model => model.MachineDescription, new {@required="required", @style="width:100%"})
+        <br><br>
+        @Html.Label("Location")
+        <br>
+        @Html.DropDownList("LocationId", null, new { @class="form-control"})
+        <br><br><br>
+        <input type="submit" value="Add New Machine" class="btn btn-outline-dark btn-block btn-sm" />
+    }
+    <br>
+    <p>@Html.ActionLink("Cancel", "Index", null, null, new {@class="btn btn-outline-warning btn-block btn-sm"})</p>
+  </div>
+  <div class="col-sm">
+
+    </div>
+    <div class="col-sm">
+    </div>
+</div>

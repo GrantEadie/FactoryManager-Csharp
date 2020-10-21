@@ -2,14 +2,16 @@
 using FactoryManager.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FactoryManager.Migrations
 {
     [DbContext(typeof(FactoryManagerContext))]
-    partial class FactoryManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20201021020942_Third")]
+    partial class Third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,24 +156,6 @@ namespace FactoryManager.Migrations
                     b.ToTable("MachineIncident");
                 });
 
-            modelBuilder.Entity("FactoryManager.Models.MachineLocation", b =>
-                {
-                    b.Property<int>("MachineLocationId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("LocationId");
-
-                    b.Property<int>("MachineId");
-
-                    b.HasKey("MachineLocationId");
-
-                    b.HasIndex("LocationId");
-
-                    b.HasIndex("MachineId");
-
-                    b.ToTable("MachineLocation");
-                });
-
             modelBuilder.Entity("FactoryManager.Models.EngineerIncident", b =>
                 {
                     b.HasOne("FactoryManager.Models.Engineer", "Engineer")
@@ -236,19 +220,6 @@ namespace FactoryManager.Migrations
 
                     b.HasOne("FactoryManager.Models.Machine", "Machine")
                         .WithMany("Incidents")
-                        .HasForeignKey("MachineId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FactoryManager.Models.MachineLocation", b =>
-                {
-                    b.HasOne("FactoryManager.Models.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("FactoryManager.Models.Machine", "Machine")
-                        .WithMany()
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

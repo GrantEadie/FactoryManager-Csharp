@@ -24,12 +24,17 @@ namespace FactoryManager.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Machine machine)
+    public ActionResult Create(Machine machine, int LocationId)
     {
+      if (LocationId != 0)
+      {
+        _db.MachineLocation.Add(new MachineLocation() { LocationId = LocationId, MachineId = machine.MachineId});
+      }
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");

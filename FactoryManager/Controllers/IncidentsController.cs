@@ -24,13 +24,28 @@ namespace FactoryManager.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Incident incident)
+    public ActionResult Create(Incident incident, int LocationId, int MachineId, int EngineerId)
     {
       _db.Incidents.Add(incident);
+      if (LocationId != 0)
+      {
+        _db.IncidentLocation.Add(new IncidentLocation() { LocationId = LocationId, IncidentId = incident.IncidentId});
+      }
+      if (MachineId != 0)
+      {
+        _db.MachineIncident.Add(new MachineIncident() { MachineId = MachineId, IncidentId = incident.IncidentId});
+      }
+      if (EngineerId != 0)
+      {
+        _db.EngineerIncident.Add(new EngineerIncident() { EngineerId = EngineerId, IncidentId = incident.IncidentId});
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }  
@@ -48,6 +63,8 @@ namespace FactoryManager.Controllers
     {
       var thisIncident = _db.Incidents.FirstOrDefault(incidents => incidents.IncidentId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "LocationName");
       return View(thisIncident);
     }
 

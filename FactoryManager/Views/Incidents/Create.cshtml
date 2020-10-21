@@ -10,17 +10,23 @@
 
     @using (Html.BeginForm())
     {
-        @Html.Label("Name")
+        @Html.Label("Call Tag")
         <br>
         @Html.TextBoxFor(model => model.IncidentTitle, new {@required="required", @style="width:100%"})
         <br><br>
-        @Html.Label("Focus/Specialty")
+        @Html.Label("Full Description")
         <br>
-        @Html.TextBoxFor(model => model.IncidentDamage, new {@required="required", @style="width:100%"})
+        @Html.TextAreaFor(model => model.IncidentDamage, new {@required="required", @style="width:100%"})
         <br><br>
-        @Html.Label("Experience")
+        @Html.Label("Location")
         <br>
-        @Html.TextBoxFor(model => model.Location, new {@required="required", @style="width:100%"})
+        @Html.DropDownList("LocationId", null, new { @class="form-control"})<br>
+        @Html.Label("Engineer involved")
+        <br>
+        @Html.DropDownList("EngineerId", null, new { @class="form-control"})<br>
+        @Html.Label("Machine involved")
+        <br>
+        @Html.DropDownList("MachineId", null, new { @class="form-control"})
         <br><br><br>
         <input type="submit" value="Add New Incident" class="btn btn-outline-dark btn-block btn-sm" />
     }
