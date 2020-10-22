@@ -15,7 +15,7 @@
 }
 @foreach (Location location in Model)
 {
-  <li>@Html.ActionLink($"{location.LocationName}", "Details", new { id = location.LocationId}, new {@class="list-detail"}) </li>
+  <li class="list-detail">@location.LocationName</li>
 }
 <hr><br><br>
 <p>@Html.ActionLink("Add New Location", "Create", null, null, new {@class="btn btn-outline-dark btn-sm"})</p>

@@ -6,12 +6,12 @@ namespace FactoryManager.Models
   {
     public Location()
     {
-      this.Machines = new HashSet<Machine>();
-      this.Incidents = new HashSet<Incident>();
+      this.Machines = new HashSet<MachineLocation>();
+      this.Incidents = new HashSet<IncidentLocation>();
     }
     public int LocationId { get; set; }
     public string LocationName { get; set; }
-    public virtual ICollection<Machine> Machines { get; set; }
-    public virtual ICollection<Incident> Incidents { get; set; }
+    public virtual ICollection<MachineLocation> Machines { get; set; }
+    public virtual ICollection<IncidentLocation> Incidents { get; set; }
   }
 }
