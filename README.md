@@ -27,7 +27,7 @@ This application is designed for the administrator of multiple engineers and mac
 
 - Migration of Database
   - In the root directory, execute _dotnet ef migrations add (name here)_
-  - execute _dotnet ef update database_
+  - execute _dotnet ef database update_
 
 ## Known Bugs
 
